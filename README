@@ -1,0 +1,75 @@
+MUSAT-BURCEA Adrian 322CB
+AA Tema 1
+
+Task 1.1:
+alfabet: 01X din cerinta
+         A si B pt a marca primul bit din cuvant si a-l folosi pe post de delimitator
+         E delimitator care marcheaza ultima shiftare din cuvant
+
+Am pornit prin marcarea primei cifre din cuvant ca delimitator, dupa care shiftez de la ultima cifra
+din cuvant cu lungimea cuvantului si pun X in locul ei. Cand se ajunge la shiftarea primei cifre din cuvant,
+cea inlocuita de delimitator A sau B pun E in locul ei dupa shiftare, marcand astfel ca algoritmul s-a incheiat.
+Cand masina ajunge la E, pune X in loc si accepta.
+Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Task 1.2:
+alfabet: 01 din cerinta
+         AB inlocuiesc 01 marcand faptul ca ele au fost comparate, in starea in care se
+    compara nr de cifre
+         2 folosit pt contor
+         X folosit ca delimitator intre cuvant si contor
+
+Incep mai intai prin a scrie un contor dupa cuvant, separat prin X si incepand de la 2 (deoarece 5 in binare este 
+101 si are 3 cifre). Mai intai compar nr de cifre al cuvantului dat cu cel al lui 101 si scad contorul cu 1 de
+fiecare data cand este numarata o cifra. Daca se ajunge la sfarsitul cuvantului inainte sa avem contorul 0, avem mai
+putin de 3 cifre deci nr mai mic ca 5. Daca ajunge contorul la 0 inainte sa se termine cifrele cuvantului, avem mai
+mult de 3 cifre deci nr mai mare ca 5. Daca avem cuvant de 3 cifre se compara bit cu bit cu 105. Dupa comparare
+sterg contorul de pe band, si las doar rezultatul
+Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Task 1.3
+alfabet: 01 din cerinta
+         2 folosit pt contor
+         X folosit ca delimitator intre cuvant si contor
+
+Incep prin a scrie contorul dupa cuvant, separat prin X si incepand de la 2 (deoarece adunam 3). Dupa adun 1 succesiv
+la cuvant pana cand contorul devine 0 (am adunat 3). Se sterge contorul de pe banda si se lasa doar rezultatul
+Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Task 1.4
+alfabet: 01 din cerinta
+         B folosit ca delimitator intre grupurile de 4 biti din BCD
+         D folosit ca delimitator intre cuvantul in BCD si cel din BIN
+
+Incep prin a pune separatorul D inainte de cuvantul dat in BIN. Dupa incep cu prima shiftarea. Folosesc 4 stari 
+diferite pt shiftare corespunzatoare cu cati biti sunt in cel mai din stanga grup BCD (ajuta la separarea cazurilor
+de comparatie si de adunare). Shiftarile sunt facut sa ignore si sa sare peste delimitatorii B si D. Dupa ce se termina 
+un pas de shiftare, se verifica daca mai avem biti in cuvantul BIN, iar apoi se trece la comparatii.
+Se compara mai intai cu 5 grupul de 3 biti de la inceput daca exista (se fac comparatia si adunarea direct pe 
+acei 3 biti, nu am mai folosit contor ca la 1.2 si 1.3), daca nu se trece direct la comparareagrupurilor de cate 
+4 biti din BCD. Dupa terminarea comparatiilor si adunarilor daca a fost cazul se trece la urmatoarea shiftare.
+Dupa ce se termina algoritmul, adica nu mai avem biti in BIN, se elimina separatorul D, dupa se adauga 0 uri in primul
+grup din BCD daca are mai putin de 4 biti si la final se elimina si separatorii B. Ontinem astfel rezultatul final si
+se accepta. Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Task 2.1
+alfabet: 01X din cerinta
+         A si B pt a marca ultimul bit din cuvant si a-l folosi pe post de delimitator
+         E delimitator care marcheaza ultima shiftare din cuvant
+
+Procedez similar ca la 1.1 doar ca marchez ca separator ultimul bit din cuvant si incep shiftarea la dreapta
+cu primul bit din cuvant.
+Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Task 2.2
+alfabet: 01 din cerinta
+         2 folosit pt contor
+         X folosit ca delimitator intre cuvant si contor
+
+Incep mai intai prin a elimina 0-urile de la inceputul cuvantului. Dupa merge pe acelasi principiu ca la 1.3, deci
+scad 1 de 3 ori. Daca rezultatul ar fi mai mic decat 0 las banda goala. Nu e specificat nimic in enunt fata de
+acest comportament.
+Descrierile fiecarei stari sunt in comentarii in solutii.
+
+Punctaj checker local: 65/100
+Nr maxim de pasi setat la checker: 65536
